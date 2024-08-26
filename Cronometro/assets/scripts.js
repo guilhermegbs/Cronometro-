@@ -1,6 +1,6 @@
     const horasE1 = document.querySelector("horas")
-    const secondsE1 = document.querySelector("seconds")
-    const millisecondsE1 = document.querySelector("milliseconds")
+    const minutosE1 = document.querySelector("minutos")
+    const segundosE1 = document.querySelector("segundos")
     const startBtn = document.querySelector("startBtn")
     const pauseBtn = document.querySelector("pauseBtn")
     const resumeBtn = document.querySelector("resumeBtn")
@@ -8,8 +8,8 @@
     
     let interval;
     let horas = 0;
-    let seconds = 0;
-    let milliseconds = 0;
+    let minutos = 0;
+    let segundos = 0;
     let isPaused = false;
 
     startBtn.addEventListener("click", startTime)
@@ -17,20 +17,20 @@
     function startTime() {
         interval = setInterval(() => {
             if (isPaused) {
-                milliseconds += 10;
+                segundos += 10;
 
-            if(milliseconds === 1000) {
-                seconds++;
-                milliseconds = 0;
+            if(segundos === 1000) {
+                minutos++;
+                segundos = 0;
             }
-            if(seconds === 60) {
+            if(minutos === 60) {
                 horas++;
-                seconds = 0;
+                minutos = 0;
             }
 
-            minutesE1.textContent = minutes;
-            horasE1.textContent = seconds;
-            millisecondsE1.textContent = milliseconds;
+            horasE1.textContent = horas;
+            horasE1.textContent = segundos;
+            segundosE1.textContent = segundos;
         }
 
     },10);
